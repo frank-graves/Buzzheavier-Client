@@ -5,6 +5,12 @@ Un cliente de escritorio **FOSS**, **Local-first** y **Privacy-by-Design** para 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=flat&logo=rust&logoColor=white)](https://www.rust-lang.org/)
 
+## ⬇️ Descargar
+
+[**v0.1.0 — Windows x64 (standalone .exe)**](https://github.com/frank-graves/Buzzheavier-client/releases/latest)
+
+> Requiere WebView2. El `.exe` no está firmado; Windows SmartScreen mostrará una advertencia la primera vez.
+
 ## 📖 Descripción
 
 BuzzHeavier Client nace de la necesidad de tener una herramienta de escritorio rápida, nativa y segura para gestionar archivos en BuzzHeavier. A diferencia de los clientes web, esta aplicación ofrece:
