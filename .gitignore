@@ -1,0 +1,22 @@
+# --- Rust / Cargo ---
+/target/
+**/*.rs.bk
+rustc-ice-*.txt
+
+# --- Windows debug symbols ---
+*.pdb
+
+# --- Editor ---
+.vscode/
+.idea/
+
+# --- OS ---
+Thumbs.db
+Desktop.ini
+
+# --- Datos locales de la app (CRÍTICO) ---
+*.db
+*.db-journal
+*.db-wal
+*.age
+buzzheavier-client/

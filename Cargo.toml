@@ -1,0 +1,58 @@
+[package]
+name = "buzzheavier-client"
+version = "0.1.0"
+edition = "2021"
+description = "Local-first, zero-telemetry BuzzHeavier desktop client"
+license = "GPL-3.0-or-later"
+rust-version = "1.75"
+
+[dependencies]
+# --- async runtime & HTTP ---
+# Solo los features que realmente usamos. `full` traía process/signal/parking_lot.
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "fs", "net", "sync", "io-util", "time", "macros"] }
+tokio-util = { version = "0.7", features = ["codec"] }
+futures-util = "0.3"
+# `blocking` eliminado: no lo usamos. `rustls-tls` sigue; en Windows reqwest usa
+# schannel para native-tls (sin OpenSSL) aunque el crate se resuelva para otros targets.
+reqwest = { version = "0.12", features = ["json", "stream", "rustls-tls"] }
+
+# --- serialization ---
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# --- errors & logging ---
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# --- GUI ---
+eframe = "0.27"
+egui_extras = "0.27"
+rfd = "0.14"
+
+# --- Cloudflare worker (hidden WebView2) ---
+wry = "0.42"
+tao = "0.30"
+
+# --- persistence ---
+rusqlite = { version = "0.31", features = ["bundled"] }
+
+# --- crypto ---
+age = "0.10"
+zeroize = { version = "1.7", features = ["derive"] }
+secrecy = "0.8"
+argon2 = "0.5"
+chacha20poly1305 = "0.10"
+rand = "0.8"
+
+# --- misc ---
+mime_guess = "2"
+uuid = { version = "1", features = ["v4"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
